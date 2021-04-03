@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm">
+  <div class="container-fluid">
+    <!--
+    <a class="navbar-brand" routerLink="/home">Peliculas</a>
+    -->
+    <button class="btn btn-outline-danger" routerLink="/home" style="margin-right: 5px;">Ir a películas</button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+      </ul>
+
+      <!-- Películas -->
+      <div class="d-flex">
+        <input 
+          #txtBuscar
+          (keyup.enter)="buscarPelicula(txtBuscar.value)"
+          class="form-control me-2 animate__animated animate__fadeInDown"
+          type="search" 
+          placeholder="Buscar película" 
+          aria-label="Search">
+        <button 
+          class="btn btn-outline-success" 
+          type="submit" 
+          (click)="buscarPelicula(txtBuscar.value)">Buscar
+        </button>
+      </div>
+      <!-- Películas -->
+      
+      <!-- Series -->
+      <button class="btn btn-outline-info" style="margin-left: 50px; margin-right: 5px;" routerLink="/series">Ir a series</button>
+      <div class="d-flex">
+        <input 
+          #txtBuscarSerie
+          (keyup.enter)="buscarSerie(txtBuscarSerie.value)"
+          class="form-control me-2 animate__animated animate__fadeInDown" 
+          type="search" 
+          placeholder="Buscar serie" 
+          aria-label="Search">
+        <button 
+          class="btn btn-outline-info" 
+          type="submit" 
+          (click)="buscarSerie(txtBuscarSerie.value)">Buscar
+        </button>
+      </div>
+      <!-- Series -->
+
+    </div>
+  </div>
+</nav>

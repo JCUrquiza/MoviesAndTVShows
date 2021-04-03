@@ -1,0 +1,33 @@
+<div class="row animate__animated animate__fadeIn" *ngIf="actor">
+
+    <div class="col-md-6">
+
+        <img class="img-thumbnail" [src]="actor.profile_path | poster">
+
+    </div>
+
+    <div class="col-md-6 text-white">
+
+        <label><strong>{{ actor.name }}</strong></label>
+
+        <!--
+        -->
+        <star-rating [value]="actor.popularity" [totalstars]="10" checkedcolor="yellow" uncheckedcolor="grey" size="15px" [readonly]="false"></star-rating>
+
+        <label><strong>También conocida como: </strong></label>
+        <ul *ngFor="let tcc of actor.also_known_as">
+            <li>{{ tcc }}</li>
+        </ul>
+
+        <label><strong>Lugar de nacimiento: </strong>{{ actor.place_of_birth }}</label>
+        <label><strong>Fecha de nacimiento: </strong>{{ actor.birthday }}</label>
+
+    </div>
+
+    <div class="col-md-12 mt-4 text-white" *ngIf="actor.biography">
+        <label><strong>Biografía: </strong></label>
+        <br />
+        <label>{{ actor.biography }}</label>
+    </div>
+
+</div>

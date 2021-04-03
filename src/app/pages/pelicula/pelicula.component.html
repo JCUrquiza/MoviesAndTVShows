@@ -1,0 +1,67 @@
+
+<div class="row animate__animated animate__fadeIn" *ngIf="pelicula">
+
+    <div class="col-md-6">
+
+        <img class="img-thumbnail" [src]="pelicula.poster_path | poster">
+
+    </div>
+
+    <div class="col-md-6">
+
+        <h3>{{ pelicula.title }}</h3>
+        <div class="row mt-2">
+            <div class="col">
+
+                <star-rating [value]="pelicula.vote_average" [totalstars]="10" checkedcolor="yellow" uncheckedcolor="grey" size="15px" [readonly]="false"></star-rating>
+
+            </div>
+            <div class="col text-white">
+                {{ pelicula.vote_average }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-white">
+                {{ pelicula.overview }}
+            </div>
+
+            <div class="text-white mt-3">
+                {{ pelicula.tagline }}
+            </div>
+
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col" *ngFor="let genero of generos" style="text-align: left;">
+                <label><span style="background-color: goldenrod; border-radius: 5px;"><strong>{{ genero.name }}</strong></span></label>
+            </div>
+        </div>
+
+        <div class="row mt-3 text-white" *ngIf="idiomas.length > 0">
+            <label>Idiomas: </label>
+            <div class="row" *ngFor="let idioma of idiomas">
+                <label>{{ idioma.english_name }}</label>
+            </div>
+        </div>
+        <br />
+        <label class="text-white">Fecha de lanzamiento: {{ pelicula.release_date }}</label>
+
+        
+        <div class="row mt-5">
+            <div class="col text-white">
+                <button class="btn btn-outline-info" (click)="regresar()">Regresar</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-5" *ngIf="cast.length > 0">
+    <div class="col">
+        <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
+    </div>
+</div>
+
